@@ -1,6 +1,11 @@
+import Falak from '.Falak.jsx';
+
 function App() {
   return (
-    <h1>React with Vite | Falak Patel</h1>
+    <>
+      <Falak />
+      <h2>Welcome to the react with Falak</h2>
+    </>
   )
 }
 
