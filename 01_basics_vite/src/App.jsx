@@ -1,4 +1,4 @@
-import Falak from '.Falak.jsx';
+import Falak from './falak.jsx';
 
 function App() {
   return (
