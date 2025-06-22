@@ -11,7 +11,7 @@ function App() {
 
   const passwordRef = useRef(null)
 
-  const passwordGenerator = useCallback( () => {
+  const passwordGenerator = useCallback(() => {
     let pass = ""
     let str = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz"
     if (numbers) str += "0123456789"
@@ -25,12 +25,12 @@ function App() {
     setPassword(pass)
   }, [length, numbers, characters, setPassword])
 
-  const copyPassToClipboard = useCallback( () => {
+  const copyPassToClipboard = useCallback(() => {
     passwordRef.current?.select()
     window.navigator.clipboard.writeText(password)
   }, [password])
 
-  useEffect( () => {
+  useEffect(() => {
     passwordGenerator()
   }, [length, numbers, characters, passwordGenerator])
 
@@ -40,44 +40,44 @@ function App() {
         <h1 className='text-white text-center text-xl my-3'>Password Generator</h1>
         <div className='flex shadow rounded-lg overflow-hidden mb-4 h-10'>
           <input
-          type="text"
-          value = {password}
-          className='outline-none w-full rounded-l-md py-1 px-3 bg-white'
-          placeholder="Password"
-          readOnly
-          ref={passwordRef}
+            type="text"
+            value={password}
+            className='outline-none w-full rounded-l-md py-1 px-3 bg-white'
+            placeholder="Password"
+            readOnly
+            ref={passwordRef}
           />
           <button
-          className='bg-blue-600 w-20 text-white hover:bg-blue-700 transition-colors duration-300'
-          onClick={copyPassToClipboard}
-          >Copy</button> 
+            className='bg-blue-600 w-20 text-white hover:bg-blue-700 transition-colors duration-300'
+            onClick={copyPassToClipboard}
+          >Copy</button>
         </div>
         <div className='flex text-sm gap-x-2'>
           <div className='flex items-center gap-x-1'>
             <input
-            type="range"
-            min= {6}
-            max= {100}
-            value= {length}
-            className='cursor-pointer'
-            onChange = {(e) => setLength(e.target.value)}
+              type="range"
+              min={6}
+              max={100}
+              value={length}
+              className='cursor-pointer'
+              onChange={(e) => setLength(e.target.value)}
             />
             <label>Length: {length}</label>
             <div className='flex items-center ml-5'>
               <input
-              type="checkbox"
-              defaultChecked = {numbers}
-              id= "numbers"
-              onChange= {() => {setNumbers((prev) => !prev)}}
+                type="checkbox"
+                defaultChecked={numbers}
+                id="numbers"
+                onChange={() => { setNumbers((prev) => !prev) }}
               />
               <label className='ml-3'>Number</label>
             </div>
             <div className='flex items-center ml-5'>
               <input
-              type="checkbox"
-              defaultChecked = {characters}
-              id= "characters"
-              onChange= {() => {setCharacters((prev) => !prev)}}
+                type="checkbox"
+                defaultChecked={characters}
+                id="characters"
+                onChange={() => { setCharacters((prev) => !prev) }}
               />
               <label className='ml-3'>Characters</label>
             </div>
